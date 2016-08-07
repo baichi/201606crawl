@@ -1,5 +1,5 @@
 module.exports = {
-    waterfall(){
+    waterfall(tasks,cb){
 
     }
 }
