@@ -7,6 +7,9 @@ var CronJob = require('cron').CronJob;
 var job = new CronJob("1 * * * * *",function(){
     //可以在控制台监听用户的输入，输入内容之后会触发此事件
     //process.stdin.on('data',function(data){
+    exec('git status',function(err,stdout,stderr){
+
+    })
         var data = "提交";
         async.series([
             function (cb) {
