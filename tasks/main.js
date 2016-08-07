@@ -27,7 +27,7 @@ async.series([
     function(cb){//读取电视剧列表
         async.forEach(categories,function(category,next){
             read.tv(category.url,category._id,function(err,items){
-            tvs = [...tvs,...items];
+            tvs = tvs.concat(items);
                 next();
             })
         },cb)
