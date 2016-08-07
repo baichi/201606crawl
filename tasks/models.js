@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var ObjectId = mongoose.Schema.Types.ObjectId;
-mongoose.connect('mongodb://123.57.143.189/201606crawl');
+mongoose.connect('mongodb://localhost/201606crawl');
 //电视剧分类
 exports.Category = mongoose.model('Category', new mongoose.Schema({
     name: String,//分类的名称
