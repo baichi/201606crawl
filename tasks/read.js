@@ -26,7 +26,7 @@ exports.category = function(url,callback){
              url:'http://top.baidu.com'+$me.attr('href').slice(1)
          }
           var result = item.url.match(/buzz\?b=(\d+)&c=/);
-          item._id = result[1];
+          item.id = result[1];
           debug('读取分类:'+item.name);
           items.push(item);
       });

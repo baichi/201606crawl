@@ -18,7 +18,11 @@ async.series([
         })
     },
     function(cb){//保存分类
-        save.category(categories,cb)
+        save.category(categories,function(err,items){
+            categories = items;
+            cb();
+        });
+
     },
     function(cb){//读取电视剧列表
         async.forEach(categories,function(category,next){
@@ -32,6 +36,5 @@ async.series([
         save.tv(tvs,cb)
     }
 ],function(err,result){
-    console.log(err,result);
     debug('所有的任务执行完毕!');
 })
