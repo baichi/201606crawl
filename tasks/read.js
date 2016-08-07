@@ -31,6 +31,7 @@ exports.category = function(url,callback){
           items.push(item);
       });
       //console.log(items);
+      callback(null,items);
   })
 }
 //exports.category('http://top.baidu.com/category?c=2&fr=topindex');
@@ -52,8 +53,8 @@ exports.tv = function(url,cid,callback){
             debug('读取电视剧:'+item.name);
             items.push(item);
         });
-        console.log(items);
+        callback(null,items);
     })
 }
-exports.tv('http://top.baidu.com/buzz?b=466&c=2',466);
+//exports.tv('http://top.baidu.com/buzz?b=466&c=2',466);
 
