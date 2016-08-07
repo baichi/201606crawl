@@ -15,10 +15,12 @@ var job = new CronJob("1 * * * * *",function(){
             function (cb) {
                 exec('git commit -m"'+data.toString()+'"', cb);
             }, function (cb) {
-                exec('git push origin master',cb);
+                exec('git push origin master',function(){
+                    console.log('提交成功');
+                });
             }
         ], function (err, result) {
-            console.log('result',result);
+            //console.log('result',result);
         })
     //});
 });
