@@ -13,7 +13,9 @@ async.series([
         exec('git commit -m"dd"', cb);
     }, function (cb) {
         console.log('-push');
-        exec('git push origin master', cb);
+        exec('git push origin master', function(err,stdout,stderr){
+        console.log(arguments);
+        });
     }
 ], function (err, result) {
   console.log('result',result);
