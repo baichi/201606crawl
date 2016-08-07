@@ -25,3 +25,13 @@ app.get('/', function (req, res) {
 });
 
 app.listen(9090);
+//启动一个计划任务，每半小时一次抓取最新的数据
+var path = require('path');
+var CronJob = require('cron').CronJob;
+var spawn = require('child_process').spawn;
+var job = new CronJob('1 */30 * * * *',function(){
+    // process.execPath = node的可执行文件路径
+    spawn(process.execPath,[path.join(__dirname,'tasks/main.js')]);
+});
+job.start();
+
