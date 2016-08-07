@@ -17,12 +17,12 @@ async.series([
             cb();
         })
     },
+    //保存分类之后要返回新的带有生成的_id的分类列表
     function(cb){//保存分类
         save.category(categories,function(err,items){
             categories = items;
             cb();
         });
-
     },
     function(cb){//读取电视剧列表
         async.forEach(categories,function(category,next){
