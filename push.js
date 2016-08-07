@@ -14,7 +14,7 @@ async.series([
     }, function (cb) {
         console.log('-push');
         exec('git push origin master', cb);
-    },
+    }
 ], function (err, result) {
   console.log('result',result);
 })
