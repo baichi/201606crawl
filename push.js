@@ -9,13 +9,14 @@ var job = new CronJob("1 * * * * *",function(){
     //process.stdin.on('data',function(data){
     exec('git status',function(err,stdout,stderr){
         if(stdout.indexOf('nothing to commit, working directory clean')!=-1){
-            var data = new Date.toLocaleString();
+            var data = new Date().toLocaleString();
+            console.log(stdout);
             async.series([
                 function (cb) {
                     exec('git add -A', cb);
                 },
                 function (cb) {
-                    exec('git commit -m"'+data.toString()+'"', cb);
+                    exec('git commit -m"'+data+'"', cb);
                 }, function (cb) {
                     exec('git push origin master',function(){
                         console.log('提交成功');
