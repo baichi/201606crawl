@@ -5,6 +5,7 @@ var exec = require('child_process').exec;
 var async = require('async');
 async.series([
     function (cb) {
+        console.log('-a');
         exec('git add -A', cb);
     },
     function (cb) {
